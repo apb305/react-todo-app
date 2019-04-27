@@ -67,6 +67,7 @@ class App extends Component {
             <span className="mr-2">
               <input
                 type="checkbox"
+                checked={data.completed}
                 onChange={() => this.taskCompleted(data)}
               />
             </span>{" "}
@@ -86,7 +87,7 @@ class App extends Component {
       <div>
         <div className="container">
           <div className="row">
-            <div className="col-md-4 text-left mt-5 p-3 mx-auto">
+            <div className="col-md-6 text-left mt-5 p-3 mx-auto">
               <h2 className="text-center mt-2">Todo List App</h2>
               <p className="mb-5 text-center">
                 Just a small Todo App written by Anthony Bernard. I will
