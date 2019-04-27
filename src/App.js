@@ -90,7 +90,13 @@ class App extends Component {
               <h2 className="text-center mt-2">Todo List App</h2>
               <p className="mb-5 text-center">
                 Just a small Todo App written by Anthony Bernard. I will
-                continue adding features to this project over time.
+                continue adding features to this project over time. See code for this project{" "}
+              <a
+                href="https://github.com/apb305/react-todo-app"
+                target="noopener noreferrer"
+              >
+                here.
+              </a>
               </p>
               <TodosAdd
                 hidden={this.state.todoListEmpty}
