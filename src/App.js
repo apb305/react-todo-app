@@ -65,7 +65,7 @@ class App extends Component {
       };
       return (
         <div key={id}>
-          <p style={styles} className="font-weight-bold">
+          <p style={styles}>
             <span className="mr-2">
               <input
                 type="checkbox"
