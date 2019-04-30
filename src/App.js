@@ -61,7 +61,7 @@ class App extends Component {
       const styles = {
         textDecoration: data.completed ? "line-through" : "none", // Add text decoration if box is checked.
         textDecorationColor: data.completed ? "red" : "none",
-        textDecorationStyle: data.completed ? "wavy" : "none"
+        fontStyle: data.completed ? "italic" : "normal",
       };
       return (
         <div key={id}>
@@ -72,16 +72,14 @@ class App extends Component {
                 checked={data.completed}
                 onChange={() => this.taskCompleted(data)}
               />
-            </span>{" "}
-            {data.title}{" "}
-            <span>
               <i
                 onClick={() => this.deleteTodo(data)}
                 className="btn fas fa-trash-alt text-danger float-right"
               />
-            </span>
+            </span>{" "}
+            {data.title}{" "}
           </p>
-          <hr className="font-weight-bold" />
+          <hr />
         </div>
       );
     });
