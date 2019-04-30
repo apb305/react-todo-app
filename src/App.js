@@ -61,7 +61,7 @@ class App extends Component {
       const styles = {
         textDecoration: data.completed ? "line-through" : "none", // Add text decoration if box is checked.
         textDecorationColor: data.completed ? "red" : "none",
-        fontStyle: data.completed ? "italic" : "normal",
+        fontStyle: data.completed ? "italic" : "normal"
       };
       return (
         <div key={id}>
@@ -89,9 +89,9 @@ class App extends Component {
           <div className="row">
             <div className="col-md-8 text-left mt-5 p-3 mx-auto">
               <p className="mb-5 text-center font-weight-bold">
-                A To-Do Application written by Anthony Bernard. I will
-                continue adding features to this project over time. See code for
-                this project{" "}
+                A To-Do Application written by Anthony Bernard. I will continue
+                adding features to this project over time. See code for this
+                project{" "}
                 <a
                   href="https://github.com/apb305/react-todo-app"
                   target="noopener noreferrer"
@@ -101,8 +101,8 @@ class App extends Component {
                 This project was built with the{" "}
                 <a href="https://reactjs.org/" target="noopener noreferrer">
                   REACT JS
-                </a>
-                {" "}library.
+                </a>{" "}
+                library.
               </p>
               <div className="card shadow-lg rounded-0">
                 <h5 className="card-header text-center">Todo List</h5>
