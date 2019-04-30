@@ -65,21 +65,21 @@ class App extends Component {
       };
       return (
         <div key={id}>
-          <p style={styles}>
-            <span className="mr-2">
+          <ul className="list-group">
+            <li style={styles} className="list-group-item">
               <input
                 type="checkbox"
                 checked={data.completed}
                 onChange={() => this.taskCompleted(data)}
               />
+              {" "}{data.title}{" "}
               <i
                 onClick={() => this.deleteTodo(data)}
                 className="btn fas fa-trash-alt text-danger float-right"
               />
-            </span>{" "}
-            {data.title}{" "}
-          </p>
-          <hr />
+           {" "}
+            </li>
+          </ul>
         </div>
       );
     });
