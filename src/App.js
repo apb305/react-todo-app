@@ -41,7 +41,7 @@ class App extends Component {
   deleteTodo = data => {
     this.setState({
       todoListEmpty:
-        this.state.todos.length <= 1 ? "Start adding some todo items! 😀" : "",
+        this.state.todos.length <= 1 ? "Start adding some to-do items! 😀" : "",
       todos: this.state.todos.filter(item => item !== data)
     });
   };
