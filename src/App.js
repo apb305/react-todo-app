@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import TodosAdd from "./components/todosAdd";
+import Todos from "./components/todos";
 import "./index.css";
+import Header from "./components/header";
 
 class App extends Component {
   constructor(props) {
@@ -57,64 +59,26 @@ class App extends Component {
   };
 
   render() {
-    const todos = this.state.todos.map((data, id) => {
-      const styles = {
-        textDecoration: data.completed ? "line-through" : "none", // Add text decoration if box is checked.
-        textDecorationColor: data.completed ? "red" : "none",
-        fontStyle: data.completed ? "italic" : "normal"
-      };
-      return (
-        <div key={id}>
-          <ul className="list-group">
-            <li style={styles} className="list-group-item">
-              <input
-                type="checkbox"
-                checked={data.completed}
-                onChange={() => this.taskCompleted(data)}
-              />
-              {" "}{data.title}{" "}
-              <i
-                onClick={() => this.deleteTodo(data)}
-                className="btn fas fa-trash-alt text-danger float-right"
-              />
-           {" "}
-            </li>
-          </ul>
-        </div>
-      );
-    });
+    const { todoTitle, todoListEmpty } = this.state;
     return (
-      <div>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-8 text-left mt-5 p-3 mx-auto">
-              <p className="mb-5 text-center font-weight-bold">
-                A To-Do Application written by Anthony Bernard. I will continue
-                adding features to this project over time. See code for this
-                project{" "}
-                <a
-                  href="https://github.com/apb305/react-todo-app"
-                  target="noopener noreferrer"
-                >
-                  here.
-                </a>{" "}
-                This project was built with the{" "}
-                <a href="https://reactjs.org/" target="noopener noreferrer">
-                  REACT JS
-                </a>{" "}
-                library.
-              </p>
-              <div className="card shadow-lg rounded-0">
-                <h5 className="card-header text-center">Todo List</h5>
-                <div className="card-body">
-                  <TodosAdd
-                    hidden={this.state.todoListEmpty}
-                    onChange={this.onChange}
-                    todoTitle={this.state.todoTitle}
-                    submitTodo={this.handleSumbitTodo}
-                  />
-                  {todos}
-                </div>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-8 text-left mt-5 p-3 mx-auto">
+            <Header />
+            <div className="card shadow-lg rounded-0">
+              <h5 className="card-header text-center">Todo List</h5>
+              <div className="card-body">
+                <TodosAdd
+                  hidden={todoListEmpty}
+                  onChange={this.onChange}
+                  todoTitle={todoTitle}
+                  submitTodo={this.handleSumbitTodo}
+                />
+                <Todos
+                  todos={this.state.todos}
+                  taskCompleted={this.taskCompleted}
+                  deleteTodo={this.deleteTodo}
+                />
               </div>
             </div>
           </div>
