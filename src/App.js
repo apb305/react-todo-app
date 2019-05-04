@@ -66,7 +66,7 @@ class App extends Component {
         <div className="row">
           <div className="col-md-8 mx-auto">
             <Header />
-            <div className="card shadow-lg">
+            <div className="card shadow-lg mb-5">
               <h5 className="card-header text-center">To-do List</h5>
               <div className="card-body">
                 <TodosAdd
@@ -87,7 +87,7 @@ class App extends Component {
                     this.deleteTodo();
                   }}
                 >
-                  Clear completed items
+                  Clear checked items
                 </button>
               </div>
             </div>

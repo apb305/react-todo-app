@@ -17,9 +17,8 @@ class Todos extends Component {
                 checked={data.completed}
                 onChange={() => this.props.taskCompleted(data)}
               />
-            </span>{" "}
+            </span>
             {data.title}
-            {data.completedText}
           </p>
           <hr />
         </div>
