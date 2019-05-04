@@ -10,20 +10,18 @@ class Todos extends Component {
       };
       return (
         <div key={id}>
-          <ul className="list-group">
-            <li style={styles} className="list-group-item">
+          <p style={styles}>
+            <span className="mr-2">
               <input
                 type="checkbox"
                 checked={data.completed}
                 onChange={() => this.props.taskCompleted(data)}
-              />{" "}
-              {data.title}{" "}
-              <i
-                onClick={() => this.props.deleteTodo(data)}
-                className="btn fas fa-trash-alt text-danger float-right"
-              />{" "}
-            </li>
-          </ul>
+              />
+            </span>{" "}
+            {data.title}
+            {data.completedText}
+          </p>
+          <hr />
         </div>
       );
     });

@@ -11,7 +11,7 @@ function TodosAdd(props) {
             name="todoTitle"
             value={props.todoTitle}
             onChange={props.onChange}
-            placeholder="Enter todo item"
+            placeholder="Enter new to-do"
             aria-describedby="basic-addon2"
             required
           />
