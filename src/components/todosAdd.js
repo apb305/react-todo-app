@@ -26,7 +26,6 @@ function TodosAdd(props) {
           </div>
         </div>
       </form>
-      <p className="text-center">{props.hidden}</p>
       <br />
     </div>
   );

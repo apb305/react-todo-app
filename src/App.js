@@ -82,7 +82,7 @@ class App extends Component {
               </div>
               <div className="card-footer">
                 <button
-                  className="btn btn-danger btn-sm align-content-center"
+                  className="btn btn-danger btn-sm"
                   onClick={() => {
                     this.deleteTodo();
                   }}
