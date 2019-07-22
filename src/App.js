@@ -8,13 +8,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [
-        {
-          completed: false,
-          title: "This is your first To-do item."
-        }
-      ],
-      todoTitle: ""
+      todos: [],
+      todoTitle: "",
+      errMsg: "No todos available."
     };
     this.onChange = this.onChange.bind(this);
     this.handleSumbitTodo = this.handleSumbitTodo.bind(this);
@@ -22,29 +18,44 @@ class App extends Component {
     this.taskCompleted = this.taskCompleted.bind(this);
   }
 
-  //When the users submits the todo item
-  handleSumbitTodo = e => {
+  componentDidMount() {
+    if (!JSON.parse(localStorage.getItem("todos"))) {
+      this.setState({
+        errMsg: "No todos available."
+      });
+    } else {
+      this.setState({
+        todos: JSON.parse(localStorage.getItem("todos"))
+      });
+    }
+  }
+
+  //Submit todo item
+  async handleSumbitTodo(e) {
     e.preventDefault();
     const newTodoItem = {
       title: this.state.todoTitle,
       completed: false
     };
-    this.setState({
+    await this.setState({
       todos: [...this.state.todos, newTodoItem],
       todoTitle: ""
     });
-  };
+    localStorage.setItem("todos", JSON.stringify(this.state.todos));
+  }
 
-  //Handles users input
+  //User Input
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  //Deleting and item from the list
+  //Delete item from the list
   deleteTodo = () => {
     this.setState({
       todos: this.state.todos.filter(item => !item.completed)
     });
+    let todosData = this.state.todos.filter(data => !data.completed);
+    localStorage.setItem("todos", JSON.stringify(todosData));
   };
 
   //Adds text decoration to show a completed todo item.
@@ -57,10 +68,11 @@ class App extends Component {
         return item;
       })
     });
+    localStorage.setItem("todos", JSON.stringify(this.state.todos));
   };
 
   render() {
-    const { todoTitle } = this.state;
+    const { todoTitle, errMsg, todos } = this.state;
     return (
       <div className="container">
         <div className="row">
@@ -78,7 +90,9 @@ class App extends Component {
                 <Todos
                   todos={this.state.todos}
                   taskCompleted={this.taskCompleted}
+                  errMsg={errMsg}
                 />
+                <p className="text-center">{todos.length < 1 ? errMsg : ""}</p>
               </div>
               <div className="card-footer">
                 <button
